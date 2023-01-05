@@ -155,4 +155,4 @@ cython_debug/
 # Discord.py
 # Discord Token is like a specific password for access to your bot, you never share this 
 # with someone else.
-token
+token.txt
