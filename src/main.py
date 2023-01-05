@@ -2,6 +2,12 @@ import discord
 from discord.ext import commands
 from commands import jokes, ping
 
+def token(path: str):
+    """Requiere únicamente un parametro el cuál es la ruta donde se encuentra guardado el token, incluyendo la extensión de dicho archivo.\n\nRetorna el token."""
+    with open(path, "r") as file:
+        token = file.read()
+    return token
+
 intents = discord.Intents.all()
 
 bot = commands.Bot("s!", intents=intents)
@@ -25,4 +31,4 @@ async def __ping(ctx):
 
 
 # Añadir token
-bot.run(token="")
+bot.run(token=token(path=""))
