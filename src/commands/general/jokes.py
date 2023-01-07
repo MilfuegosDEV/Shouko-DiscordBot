@@ -41,15 +41,22 @@ def __get_random_chiste():
 
 
 def jokes(ctx: commands.Bot):
-    # embed
+    """Muestra un chiste aleatorio en un mensaje de respuesta en un canal de Discord.
+    
+    Parameters:
+    ctx (commands.Bot): Contexto del comando, que proporciona información sobre el mensaje que invocó el comando y el canal en el que se envió el mensaje.
+    
+    Returns:
+    None: No devuelve ningún valor.
+    """
+    # Obtiene un chiste aleatorio y la información del autor
     __randomJoke = __get_random_chiste()
+    # Crea una instancia de Embed
     embed = discord.Embed(description=__randomJoke[0])
-
-    # Author del chiste
+    # Establece el autor del mensaje embed con el nombre del autor del chiste
     embed.set_author(name=__randomJoke[1])
-
-    # footer
+    # Establece el pie de página del mensaje embed
     embed.set_footer(text="v2.1.0 • Hoy a las {}".format(
         datetime.today().strftime('%H:%M')))
-
+    # Envía el mensaje embed de vuelta al canal de Discord
     return ctx.reply(embed=embed)
