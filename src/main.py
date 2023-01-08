@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from commands import jokes, ping
-
+from games import typing
 def token(path: str):
     """Requiere únicamente un parametro el cuál es la ruta donde se encuentra guardado el token, incluyendo la extensión de dicho archivo.\n\nRetorna el token."""
     with open(path, "r") as file:
@@ -29,6 +29,9 @@ async def __jokes(ctx):
 async def __ping(ctx):
     await ping(ctx, bot)
 
+@bot.command(name="type")
+async def __type(ctx):
+    await typing(ctx, bot)
 
 # Añadir token
-bot.run(token=token(path=""))
+bot.run(token=token(path="token.txt"))
